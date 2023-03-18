@@ -34,12 +34,12 @@ var (
 func init() {
 	en := control.Register("lolicon", &ctrl.Options[*zero.Ctx]{
 		DisableOnDefault: false,
-		Brief:            "随机图片",
-		Help: "- 随机图片\n" +
-			"- 随机图片 萝莉|少女\n" +
+		Brief:            "来点涩图",
+		Help: "- 来点涩图\n" +
+			"- 来点涩图 萝莉|少女\n" +
 			"- 设置随机图片地址[http...]",
 	}).ApplySingle(ctxext.DefaultSingle)
-	en.OnPrefix("随机图片").Limit(ctxext.LimitByUser).SetBlock(true).
+	en.OnPrefix("来点涩图").Limit(ctxext.LimitByUser).SetBlock(true).
 		Handle(func(ctx *zero.Ctx) {
 			if imgtype := strings.TrimSpace(ctx.State["args"].(string)); imgtype != "" {
 				imageurl, err := getimgurl(api + "?tag=" + url.QueryEscape(imgtype))
